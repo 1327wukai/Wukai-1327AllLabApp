@@ -10,7 +10,7 @@ namespace Wukai_1327AllLabApp
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter first Number:_ ");
+            Console.Write("Enter first Number: ");
             double n1 = Convert.ToDouble(Console.ReadLine()); 
             Console.Write("Enter second Number: ");
             double n2 = Convert.ToDouble(Console.ReadLine()); 
