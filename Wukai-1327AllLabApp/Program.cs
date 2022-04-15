@@ -36,8 +36,8 @@ namespace Wukai_1327AllLabApp
                     valid = false; 
                     break;
             }
-            if (valid)
-
+            if (valid) Console.WriteLine("Result is:" + result);
+            else Console.WriteLine("Invalid Operator! ");
         }
     }
 }
