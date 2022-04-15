@@ -18,6 +18,25 @@ namespace Wukai_1327AllLabApp
             string op = Console.ReadLine(); 
             double result = 0;
             bool valid = true;
+            switch (op)
+            {
+                case "+":
+                    result = nl + n2; 
+                    break;
+                case "-":
+                    result = nl - n2; 
+                    break;
+                case "*":
+                    result = nl * n2; 
+                    break;
+                case "/":
+                    result = nl / n2; 
+                    break;
+                default:
+                    valid = false; 
+                    break;
+            }
+            if (valid)
 
         }
     }
