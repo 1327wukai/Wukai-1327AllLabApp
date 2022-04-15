@@ -11,7 +11,7 @@ namespace Wukai_1327AllLabApp
         static void Main(string[] args)
         {
             Console.Write("Enter first Number:_ ");
-            double nl = Convert.ToDouble(Console.ReadLine()); 
+            double n1 = Convert.ToDouble(Console.ReadLine()); 
             Console.Write("Enter second Number: ");
             double n2 = Convert.ToDouble(Console.ReadLine()); 
             Console.Write("Enter operator: ");
@@ -21,16 +21,16 @@ namespace Wukai_1327AllLabApp
             switch (op)
             {
                 case "+":
-                    result = nl + n2; 
+                    result = n1 + n2; 
                     break;
                 case "-":
-                    result = nl - n2; 
+                    result = n1 - n2; 
                     break;
                 case "*":
-                    result = nl * n2; 
+                    result = n1 * n2; 
                     break;
                 case "/":
-                    result = nl / n2; 
+                    result = n1 / n2; 
                     break;
                 default:
                     valid = false; 

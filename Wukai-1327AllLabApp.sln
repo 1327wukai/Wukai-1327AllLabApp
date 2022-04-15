@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wukai-1327AllLabApp", "Wukai-1327AllLabApp\Wukai-1327AllLabApp.csproj", "{625DBA87-0493-4722-A62E-801CB050C71E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabAss2", "LabAss2\LabAss2.csproj", "{748232BB-5EEE-415F-BE36-9D7408B2B304}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{625DBA87-0493-4722-A62E-801CB050C71E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{625DBA87-0493-4722-A62E-801CB050C71E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{625DBA87-0493-4722-A62E-801CB050C71E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{748232BB-5EEE-415F-BE36-9D7408B2B304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{748232BB-5EEE-415F-BE36-9D7408B2B304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{748232BB-5EEE-415F-BE36-9D7408B2B304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{748232BB-5EEE-415F-BE36-9D7408B2B304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
