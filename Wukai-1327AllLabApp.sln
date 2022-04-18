@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wukai-1327AllLabApp", "Wuka
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabAss2", "LabAss2\LabAss2.csproj", "{748232BB-5EEE-415F-BE36-9D7408B2B304}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabAss3", "LabAss3\LabAss3.csproj", "{454D5A50-A5EB-459E-A7D4-B768BCE2DFD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{748232BB-5EEE-415F-BE36-9D7408B2B304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748232BB-5EEE-415F-BE36-9D7408B2B304}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{748232BB-5EEE-415F-BE36-9D7408B2B304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{454D5A50-A5EB-459E-A7D4-B768BCE2DFD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454D5A50-A5EB-459E-A7D4-B768BCE2DFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454D5A50-A5EB-459E-A7D4-B768BCE2DFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454D5A50-A5EB-459E-A7D4-B768BCE2DFD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
