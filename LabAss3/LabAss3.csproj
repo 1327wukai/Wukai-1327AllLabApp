@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDBDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CustomerValidation.cs" />
     <Compile Include="frmCustomerDataEntry.cs">
       <SubType>Form</SubType>
@@ -85,6 +90,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CustomerDBDataSet2.xsc">
+      <DependentUpon>CustomerDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CustomerDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomerDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CustomerDBDataSet2.xss">
+      <DependentUpon>CustomerDBDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

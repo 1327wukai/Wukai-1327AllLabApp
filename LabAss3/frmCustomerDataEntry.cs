@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,163 @@ namespace LabAss3
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+
+        private void frmCustomerDataEntry_Load(object sender, EventArgs e)
+        {
+            // TODO: 这行代码将数据加载到表“customerDBDataSet2.Customer”中。您可以根据需要移动或移除它。
+            this.customerTableAdapter.Fill(this.customerDBDataSet2.Customer);
+            // TODO: 这行代码将数据加载到表“customerDBDataSet2.Customer”中。您可以根据需要移动或移除它。
+            this.customerTableAdapter.Fill(this.customerDBDataSet2.Customer);
+            // TODO: 这行代码将数据加载到表“customerDBDataSet2.Customer”中。您可以根据需要移动或移除它。
+            this.customerTableAdapter.Fill(this.customerDBDataSet2.Customer);
+            loadCustomer();
+        }
+
+        private void loadCustomer()
+        {
+            // TODO: 这行代码将数据加载到表“customerDBDataSet2.Customer”中。您可以根据需要移动或移除它。
+            this.customerTableAdapter.Fill(this.customerDBDataSet2.Customer);
+            // Open a Connection
+            string strConnection = "Data Source=DESKTOP-2MH1I6N;Initial Catalog=CustomerDB;Integrated Security=True;Pooling=False";
+            SqlConnection objConnection = new SqlConnection(strConnection);
+            objConnection.Open();
+
+            // Fire a Command
+            string strCommand = "Select * From Customer";
+            SqlCommand objCommand = new SqlCommand(strCommand, objConnection);
+            // Bind Data with UI
+            DataSet objDataSet = new DataSet();
+            SqlDataAdapter objAdapter = new SqlDataAdapter(objCommand);
+            objAdapter.Fill(objDataSet);
+            dtgCustomer.DataSource = objDataSet.Tables[0];
+
+            // Close the Connection
+            objConnection.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string Gender, Hobby, Status = "";
+            if (radioMale.Checked) Gender = "Male";
+            else Gender = "Female";
+            if (chkReading.Checked) Hobby = "Reading";
+            else Hobby = "Painting";
+            if (radioMarried.Checked) Status = "1";
+            else Status = "0";
+
+            // Open a Connection
+            string strConnection = "Data Source=DESKTOP-2MH1I6N;Initial Catalog=CustomerDB;Integrated Security=True;Pooling=False";
+            SqlConnection objConnection = new SqlConnection(strConnection);
+            objConnection.Open();
+            // Fire a Command
+            string strCommand = "insert into Customer(CustomerName,Country,Gender,Hobby,Married) values('" + txtName.Text + "', '"
+            + cmbCountry.Text + "','"
+            + Gender + "', '"
+            + Hobby + "', "
+            + Status + " )";
+            SqlCommand objCommand = new SqlCommand(strCommand, objConnection);
+            objCommand.ExecuteNonQuery();
+
+            // Close the Connection
+            objConnection.Close();
+            loadCustomer();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string Gender, Hobby, Status = "";
+            if (radioMale.Checked) Gender = "Male";
+            else Gender = "Female";
+            if (chkReading.Checked) Hobby = "Reading";
+            else Hobby = "Painting";
+            if (radioMarried.Checked) Status = "1";
+            else Status = "0";
+            //Open a Connection
+            string strConnection = "Data Source=DESKTOP-2MH1I6N;Initial Catalog=CustomerDB;Integrated Security=True;Pooling=False";
+            SqlConnection objConnection = new SqlConnection(strConnection);
+            objConnection.Open();
+            //Fire a Command
+            string strCommand = "UPDATE Customer SET CustomerName =@CustomerName, Country=@Country, " +
+                "Gender=@Gender,Hobby=@Hobby,Married= @Married WHERE id=@id";
+            SqlCommand objCommand = new SqlCommand(strCommand, objConnection);
+            objCommand.Parameters.AddWithValue("@CustomerName", txtName.Text.Trim());
+            objCommand.Parameters.AddWithValue("@Country", cmbCountry.Text.Trim());
+            objCommand.Parameters.AddWithValue("@Gender", Gender);
+            objCommand.Parameters.AddWithValue("@Hobby", Hobby);
+            objCommand.Parameters.AddWithValue("@Married", Status);
+            objCommand.Parameters.AddWithValue("@id", lblID.Text.Trim());
+            objCommand.ExecuteNonQuery();
+            // Close the Connection
+            objConnection.Close();
+            clearForm();
+            loadCustomer();
+        }
+
+
+        private void clearForm()
+        {
+            txtName.Text = "";
+            cmbCountry.Text = "";
+            radioMale.Checked = false;
+            radioFemale.Checked = false;
+            chkPainting.Checked = false;
+            chkReading.Checked = false;
+            radioMarried.Checked = false;
+            radioUnmarried.Checked = false;
+        }
+
+        private void displayCustomer(string id)
+        {
+            // Open a Connection
+
+            string strConnection = "Data Source=DESKTOP-2MH1I6N;Initial Catalog=CustomerDB;Integrated Security=True;Pooling=False";
+            SqlConnection objConnection = new SqlConnection(strConnection);
+            objConnection.Open();
+            // Fire a Command
+            string strCommand = "Select * From Customer where id =" + id;
+            SqlCommand objCommand = new SqlCommand(strCommand, objConnection);
+            // Bind Data with UI
+            DataSet objDataSet = new DataSet();
+            SqlDataAdapter objAdapter = new SqlDataAdapter(objCommand);
+            objAdapter.Fill(objDataSet);
+            objConnection.Close();
+            lblID.Text = objDataSet.Tables[0].Rows[0][0].ToString().Trim(); ;
+            txtName.Text = objDataSet.Tables[0].Rows[0][1].ToString().Trim();
+            cmbCountry.Text = objDataSet.Tables[0].Rows[0][2].ToString().Trim();
+            string Gender = objDataSet.Tables[0].Rows[0][3].ToString().Trim();
+            if (Gender.Equals("Male")) radioMale.Checked = true;
+            else radioFemale.Checked = true;
+            string Hobby = objDataSet.Tables[0].Rows[0][4].ToString().Trim();
+            if (Hobby.Equals("Reading")) chkReading.Checked = true;
+            else chkPainting.Checked = true;
+            string Married = objDataSet.Tables[0].Rows[0][5].ToString().Trim();
+            if (Married.Equals("True")) radioMarried.Checked = true;
+            else radioUnmarried.Checked = true;
+        }
+
+        private void dtgCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            clearForm();
+            string id = dtgCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
+            displayCustomer(id);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // Open a Connection
+            string strConnection = "Data Source=DESKTOP-2MH1I6N;Initial Catalog=CustomerDB;Integrated Security=True;Pooling=False";
+            SqlConnection objConnection = new SqlConnection(strConnection);
+            objConnection.Open();
+            // Fire a Command
+            string strCommand = "Delete from Customer where id = '" + lblID.Text + "'";
+            SqlCommand objCommand = new SqlCommand(strCommand, objConnection);
+            objCommand.ExecuteNonQuery();
+            // Close the Connection
+            objConnection.Close();
+            clearForm();
+            loadCustomer();
         }
     }
 }

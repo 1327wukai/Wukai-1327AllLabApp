@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labcustomername = new System.Windows.Forms.Label();
             this.labcountry = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -42,8 +43,25 @@
             this.radioMarried = new System.Windows.Forms.RadioButton();
             this.btnPreview = new System.Windows.Forms.Button();
             this.cmbCountry = new System.Windows.Forms.ComboBox();
+            this.dtgCustomer = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hobbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marriedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customerDBDataSet2 = new LabAss3.CustomerDBDataSet2();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lblID = new System.Windows.Forms.Label();
+            this.customerTableAdapter = new LabAss3.CustomerDBDataSet2TableAdapters.CustomerTableAdapter();
             this.Gender.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDBDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // labcustomername
@@ -169,7 +187,7 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(167, 500);
+            this.btnPreview.Location = new System.Drawing.Point(52, 452);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(152, 49);
             this.btnPreview.TabIndex = 9;
@@ -185,11 +203,138 @@
             this.cmbCountry.Size = new System.Drawing.Size(157, 23);
             this.cmbCountry.TabIndex = 10;
             // 
-            // Form1
+            // dtgCustomer
+            // 
+            this.dtgCustomer.AutoGenerateColumns = false;
+            this.dtgCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.countryDataGridViewTextBoxColumn,
+            this.genderDataGridViewTextBoxColumn,
+            this.hobbyDataGridViewTextBoxColumn,
+            this.marriedDataGridViewCheckBoxColumn});
+            this.dtgCustomer.DataSource = this.customerBindingSource;
+            this.dtgCustomer.Location = new System.Drawing.Point(475, 48);
+            this.dtgCustomer.Name = "dtgCustomer";
+            this.dtgCustomer.RowHeadersWidth = 51;
+            this.dtgCustomer.RowTemplate.Height = 27;
+            this.dtgCustomer.Size = new System.Drawing.Size(764, 383);
+            this.dtgCustomer.TabIndex = 11;
+            this.dtgCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCustomer_CellClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.customerNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // countryDataGridViewTextBoxColumn
+            // 
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            this.genderDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.genderDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // hobbyDataGridViewTextBoxColumn
+            // 
+            this.hobbyDataGridViewTextBoxColumn.DataPropertyName = "Hobby";
+            this.hobbyDataGridViewTextBoxColumn.HeaderText = "Hobby";
+            this.hobbyDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hobbyDataGridViewTextBoxColumn.Name = "hobbyDataGridViewTextBoxColumn";
+            this.hobbyDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // marriedDataGridViewCheckBoxColumn
+            // 
+            this.marriedDataGridViewCheckBoxColumn.DataPropertyName = "Married";
+            this.marriedDataGridViewCheckBoxColumn.HeaderText = "Married";
+            this.marriedDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.marriedDataGridViewCheckBoxColumn.Name = "marriedDataGridViewCheckBoxColumn";
+            this.marriedDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataMember = "Customer";
+            this.customerBindingSource.DataSource = this.customerDBDataSet2;
+            // 
+            // customerDBDataSet2
+            // 
+            this.customerDBDataSet2.DataSetName = "CustomerDBDataSet2";
+            this.customerDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(269, 452);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(161, 49);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(52, 529);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(152, 43);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(269, 529);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(161, 43);
+            this.btnDelete.TabIndex = 14;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(611, 511);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 15);
+            this.lblID.TabIndex = 15;
+            this.lblID.Visible = false;
+            // 
+            // customerTableAdapter
+            // 
+            this.customerTableAdapter.ClearBeforeFill = true;
+            // 
+            // frmCustomerDataEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 626);
+            this.ClientSize = new System.Drawing.Size(1251, 597);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.dtgCustomer);
             this.Controls.Add(this.cmbCountry);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.groupBox1);
@@ -200,12 +345,16 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.labcountry);
             this.Controls.Add(this.labcustomername);
-            this.Name = "Form1";
+            this.Name = "frmCustomerDataEntry";
             this.Text = "Customer Data Entry Screen";
+            this.Load += new System.EventHandler(this.frmCustomerDataEntry_Load);
             this.Gender.ResumeLayout(false);
             this.Gender.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDBDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,6 +376,20 @@
         private System.Windows.Forms.RadioButton radioMarried;
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.ComboBox cmbCountry;
+        private System.Windows.Forms.DataGridView dtgCustomer;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label lblID;
+        private CustomerDBDataSet2 customerDBDataSet2;
+        private System.Windows.Forms.BindingSource customerBindingSource;
+        private CustomerDBDataSet2TableAdapters.CustomerTableAdapter customerTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hobbyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn marriedDataGridViewCheckBoxColumn;
     }
 }
 
