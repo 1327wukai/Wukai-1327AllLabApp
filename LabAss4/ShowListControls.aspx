@@ -11,29 +11,29 @@
     <form id="form1" runat="server">
         <div><h1>ListBox</h1>
             <p>
-                <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserNane" DataValueField="UserNane"></asp:ListBox>
+                <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserName" DataValueField="UserName"></asp:ListBox>
             </p></div>
         <div><h1>DropDownList</h1>
             <p>
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserNane" DataValueField="UserNane">
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserName" DataValueField="UserName">
                 </asp:DropDownList>
             </p></div>
         <div><h1>BulletedList</h1>
             <p></p>
-            <asp:BulletedList ID="BulletedList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserNane" DataValueField="UserNane">
+            <asp:BulletedList ID="BulletedList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserName" DataValueField="UserName">
             </asp:BulletedList>
         </div>
         <div><h1>CheckBoxList</h1>
             <p>
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserNane" DataValueField="UserNane">
+                <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserName" DataValueField="UserName">
                 </asp:CheckBoxList>
             </p></div>
         <div><h1>RadioButtonList</h1></div>
 
-        <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserNane" DataValueField="UserNane">
+        <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="UserName" DataValueField="UserName">
         </asp:RadioButtonList>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SampleDatabaseConnectionString %>" SelectCommand="SELECT [UserNane], [Password] FROM [Logon]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SampleDatabaseConnectionString %>" SelectCommand="SELECT [UserName], [Password] FROM [Logon]"></asp:SqlDataSource>
 
     </form>
 </body>

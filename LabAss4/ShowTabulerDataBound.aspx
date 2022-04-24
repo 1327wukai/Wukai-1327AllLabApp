@@ -13,7 +13,7 @@
             <h1>GridView</h1>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
-                    <asp:BoundField DataField="UserNane" HeaderText="UserNane" SortExpression="UserNane" />
+                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
                 </Columns>
                 </asp:GridView>
@@ -22,8 +22,8 @@
             <h1>DataList</h1>
             <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
                 <ItemTemplate>
-                    UserNane:
-                    <asp:Label ID="UserNaneLabel" runat="server" Text='<%# Eval("UserNane") %>' />
+                    UserName:
+                    <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
                     <br />
                     Password:
                     <asp:Label ID="PasswordLabel" runat="server" Text='<%# Eval("Password") %>' />
@@ -36,7 +36,7 @@
             <h1>DetailsView</h1>
             <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataSourceID="SqlDataSource1" Height="50px" Width="125px">
                 <Fields>
-                    <asp:BoundField DataField="UserNane" HeaderText="UserNane" SortExpression="UserNane" />
+                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
                 </Fields>
                 </asp:DetailsView>
@@ -45,8 +45,8 @@
             <h1>FormView</h1>
             <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1">
                 <EditItemTemplate>
-                    UserNane:
-                    <asp:TextBox ID="UserNaneTextBox" runat="server" Text='<%# Bind("UserNane") %>' />
+                    UserName:
+                    <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
                     <br />
                     Password:
                     <asp:TextBox ID="PasswordTextBox" runat="server" Text='<%# Bind("Password") %>' />
@@ -55,8 +55,8 @@
                     &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消" />
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    UserNane:
-                    <asp:TextBox ID="UserNaneTextBox" runat="server" Text='<%# Bind("UserNane") %>' />
+                    UserName:
+                    <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
                     <br />
                     Password:
                     <asp:TextBox ID="PasswordTextBox" runat="server" Text='<%# Bind("Password") %>' />
@@ -65,8 +65,8 @@
                     &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消" />
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    UserNane:
-                    <asp:Label ID="UserNaneLabel" runat="server" Text='<%# Bind("UserNane") %>' />
+                    UserName:
+                    <asp:Label ID="UserNameLabel" runat="server" Text='<%# Bind("UserName") %>' />
                     <br />
                     Password:
                     <asp:Label ID="PasswordLabel" runat="server" Text='<%# Bind("Password") %>' />
@@ -80,9 +80,9 @@
             <p><asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
 
                 <ItemTemplate>
-                    <%#Eval("Usernane") %>
+                    <%#Eval("Username") %>
                         <i>-->y</i>
-                    <%#Eval("password") %>
+                    <%#Eval("Password") %>
                 </ItemTemplate>
                 </asp:Repeater>
             </p>
@@ -92,14 +92,94 @@
             <p>
                 <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
 
+                    <AlternatingItemTemplate>
+                        <tr style="">
+                            <td>
+                                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="PasswordLabel" runat="server" Text='<%# Eval("Password") %>' />
+                            </td>
+                        </tr>
+                    </AlternatingItemTemplate>
+                    <EditItemTemplate>
+                        <tr style="">
+                            <td>
+                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="更新" />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="取消" />
+                            </td>
+                            <td>
+                                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
+                            </td>
+                            <td>
+                                <asp:TextBox ID="PasswordTextBox" runat="server" Text='<%# Bind("Password") %>' />
+                            </td>
+                        </tr>
+                    </EditItemTemplate>
+                    <EmptyDataTemplate>
+                        <table runat="server" style="">
+                            <tr>
+                                <td>未返回数据。</td>
+                            </tr>
+                        </table>
+                    </EmptyDataTemplate>
+                    <InsertItemTemplate>
+                        <tr style="">
+                            <td>
+                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="插入" />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="清除" />
+                            </td>
+                            <td>
+                                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
+                            </td>
+                            <td>
+                                <asp:TextBox ID="PasswordTextBox" runat="server" Text='<%# Bind("Password") %>' />
+                            </td>
+                        </tr>
+                    </InsertItemTemplate>
+
                 <ItemTemplate>
-                    <%#Eval("Usernane") %>
-                        <i>--></i>
-                    <%#Eval("password") %>
+                    <tr style="">
+                        <td>
+                            <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PasswordLabel" runat="server" Text='<%# Eval("Password") %>' />
+                        </td>
+                    </tr>
                 </ItemTemplate>
+                    <LayoutTemplate>
+                        <table runat="server">
+                            <tr runat="server">
+                                <td runat="server">
+                                    <table id="itemPlaceholderContainer" runat="server" border="0" style="">
+                                        <tr runat="server" style="">
+                                            <th runat="server">UserName</th>
+                                            <th runat="server">Password</th>
+                                        </tr>
+                                        <tr id="itemPlaceholder" runat="server">
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr runat="server">
+                                <td runat="server" style=""></td>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    <SelectedItemTemplate>
+                        <tr style="">
+                            <td>
+                                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="PasswordLabel" runat="server" Text='<%# Eval("Password") %>' />
+                            </td>
+                        </tr>
+                    </SelectedItemTemplate>
                 </asp:ListView>
             </p>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SampleDatabaseConnectionString %>" SelectCommand="SELECT [UserNane], [Password] FROM [Logon]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SampleDatabaseConnectionString %>" SelectCommand="SELECT [UserName], [Password] FROM [Logon]"></asp:SqlDataSource>
         </div>
 
     </form>
