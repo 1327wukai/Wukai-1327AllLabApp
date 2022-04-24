@@ -92,91 +92,12 @@
             <p>
                 <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
 
-                    <AlternatingItemTemplate>
-                        <tr style="">
-                            <td>
-                                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PasswordLabel" runat="server" Text='<%# Eval("Password") %>' />
-                            </td>
-                        </tr>
-                    </AlternatingItemTemplate>
-                    <EditItemTemplate>
-                        <tr style="">
-                            <td>
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="更新" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="取消" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="PasswordTextBox" runat="server" Text='<%# Bind("Password") %>' />
-                            </td>
-                        </tr>
-                    </EditItemTemplate>
-                    <EmptyDataTemplate>
-                        <table runat="server" style="">
-                            <tr>
-                                <td>未返回数据。</td>
-                            </tr>
-                        </table>
-                    </EmptyDataTemplate>
-                    <InsertItemTemplate>
-                        <tr style="">
-                            <td>
-                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="插入" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="清除" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="PasswordTextBox" runat="server" Text='<%# Bind("Password") %>' />
-                            </td>
-                        </tr>
-                    </InsertItemTemplate>
-
-                <ItemTemplate>
-                    <tr style="">
-                        <td>
-                            <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="PasswordLabel" runat="server" Text='<%# Eval("Password") %>' />
-                        </td>
-                    </tr>
+                    <ItemTemplate>
+                    <%#Eval("Username") %>
+                        <i>-->y</i>
+                    <%#Eval("Password") %>
                 </ItemTemplate>
-                    <LayoutTemplate>
-                        <table runat="server">
-                            <tr runat="server">
-                                <td runat="server">
-                                    <table id="itemPlaceholderContainer" runat="server" border="0" style="">
-                                        <tr runat="server" style="">
-                                            <th runat="server">UserName</th>
-                                            <th runat="server">Password</th>
-                                        </tr>
-                                        <tr id="itemPlaceholder" runat="server">
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr runat="server">
-                                <td runat="server" style=""></td>
-                            </tr>
-                        </table>
-                    </LayoutTemplate>
-                    <SelectedItemTemplate>
-                        <tr style="">
-                            <td>
-                                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PasswordLabel" runat="server" Text='<%# Eval("Password") %>' />
-                            </td>
-                        </tr>
-                    </SelectedItemTemplate>
+             
                 </asp:ListView>
             </p>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SampleDatabaseConnectionString %>" SelectCommand="SELECT [UserName], [Password] FROM [Logon]"></asp:SqlDataSource>
